@@ -22,6 +22,11 @@ const StyledHeroCard = styled.div `
     width: 80%;
     color: white;
 
+    h1 {
+      font-family: var(--font-sans);
+      font-weight: 800;
+    }
+
     div {
         display:flex;
         text-align: center;
