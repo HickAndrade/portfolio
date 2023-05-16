@@ -42,6 +42,17 @@ const TransitionStyles = css`
   opacity: 0;
   transition: opacity 300ms var(--easing);
 }
+
+#different-color{
+  display: flex;
+  color: black;
+  background-color: white;
+  font-family: var(--font-sans);
+  font-size:35px;
+  font-weight: 800;
+  width: 25rem;
+}
+
 `;
 
 export default TransitionStyles;

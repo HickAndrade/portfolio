@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { GlobalStyle }  from '@styles';
-
+import { GlobalStyle, mixins }  from '@styles';
+import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
+import Nav from '@components/nav';
 
-import Nav from './nav';
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -27,12 +27,15 @@ const[isLoading, setIsLoading] = useState(isHome);
     return (
 
         <div id="root">
-         <GlobalStyle />
-            <StyledContent>
-                <div id="content">
-                    {children}
-                </div>
-            </StyledContent>
+        <ThemeProvider theme={mixins}>
+            <GlobalStyle />
+                <StyledContent>
+                    <Nav isHome={isHome} />
+                    <div id="content">
+                        {children}
+                    </div>
+                </StyledContent>
+        </ThemeProvider>
         </div>
        
     )

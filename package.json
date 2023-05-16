@@ -1,8 +1,8 @@
 {
-  "name": "learn-gatsby",
+  "name": "portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "learn-gatsby",
+  "description": "portfolio",
   "author": "HickAndrade",
   "keywords": [
     "gatsby"
@@ -21,6 +21,7 @@
     "gatsby-plugin-styled-components": "^6.9.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-simple-typewriter": "^5.0.1",
     "react-transition-group": "^4.4.5",
     "sass": "^1.62.0",
     "styled-components": "^5.3.9"

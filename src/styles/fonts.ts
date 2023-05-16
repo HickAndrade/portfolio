@@ -14,8 +14,8 @@ import InterRegularWoff from '@fonts/Inter/Inter-Regular.woff';
 import InterRegularWoff2 from '@fonts/Inter/Inter-Regular.woff2';
 import InterBoldWoff from '@fonts/Inter/Inter-Bold.woff';
 import InterBoldWoff2 from '@fonts/Inter/Inter-Bold.woff2';
-import InterExtraBoldWoff from '@fonts/Inter/Inter-Bold.woff';
-import InterExtraBoldWoff2 from '@fonts/Inter/Inter-Bold.woff2';
+import InterExtraBoldWoff from '@fonts/Inter/Inter-ExtraBold.woff';
+import InterExtraBoldWoff2 from '@fonts/Inter/Inter-ExtraBold.woff2';
 
 import NunitoRegularWoff from '@fonts/Nunito/Nunito-Regular.woff';
 import NunitoRegularWoff2 from '@fonts/Nunito/Nunito-Regular.woff2';
