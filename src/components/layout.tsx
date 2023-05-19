@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { GlobalStyle, mixins }  from '@styles';
 import { ThemeProvider } from 'styled-components';
 import styled from 'styled-components';
-import Nav from '@components/nav';
+import { Nav } from '@components';
 
 
 interface LayoutProps {
     children: React.ReactNode;
     location: {
         pathname: string;
+        hash: string;
       }
   }
 
@@ -18,11 +19,10 @@ const StyledContent = styled.div `
   min-height:100vh;
 `
 
-
-
 const Layout = ({ children, location } : LayoutProps) : JSX.Element => {
 const isHome = location.pathname === '/';
-const[isLoading, setIsLoading] = useState(isHome);
+const[isLoading, setIsLoading] = useState(false);
+
 
     return (
 

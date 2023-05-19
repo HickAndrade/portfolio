@@ -3,78 +3,110 @@ import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import styled from 'styled-components';
 import config, { NavLink } from '@config';
 import { Link } from 'gatsby';
+import { ToggleMode } from '@components';
+
 
 const StyledHeader = styled.header`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    ${({ theme }) => theme.flexBetween }
     position:fixed;
     top:0;
     z-index:11;
     width: 100%;
     height: 100px;
-    background-color:black;
     pointer-events: auto !important;
    
 `
 const StyledNav = styled.nav`
-    display:flex;
-    justify-content: space-between;
-    align-items:center;
+    ${({ theme }) => theme.flexBetween }    
     position:relative;
     z-index:12;
     width: 100%;
-    margin: 3rem;
-    background-color: white;
+    margin: 3rem; 
     font-family: var(--font-sans);
     font-weight: 700;
 `
-
-const StyledLinks = styled.div`
+const NavOptions = styled.div`
     display: flex;
-    aligh-items: center;
-    margin-right: 5rem;
-    ul {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0;
-        margin: 0;
-        list-style: none;
-        li {
-            margin: 0 15px;
-            position: relative;
-            font-size: 16.5px;
-            a {
-                padding: 5px;
-                background-color: red;
-            }
-        }
+    align-items: center;
+    margin-right: 3rem;
+
+   ul {
+    ${({ theme }) => theme.flexBetween}
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      display: flex;
+      margin: 0 17px;
+      position: relative;
+      font-size: 16px;
+
+      a {
+        padding: 5px;
+        ${({ theme }) => theme.darkMode.fontColor }
+        text-decoration: none;
+      }
+
+      &:before {
+        margin-top: 1.8rem;
+        width: 0%;
+        ${({ theme }) => theme.darkMode.nav.effect }
+        ${({ theme }) => theme.darkMode.nav.before }
+      }
+
+      &:after {
+        margin-top: 2.3rem;
+        width: 0%;
+        ${({ theme }) => theme.darkMode.nav.effect }
+        ${({ theme }) => theme.darkMode.nav.after }
+      }
+
+      &:hover {
+        &:after{ width: 60%; }
+        &:before{ width:100%; }
+      }
     }
+   }
 `
 
 const Nav = ({ isHome }: { isHome: boolean }): JSX.Element => {
-    const [isMounted, setIsMounted] = useState(isHome);
+    const [isMounted, setIsMounted] = useState(!isHome);
     const { navLinks } = config;
+
+useEffect(() => {
+    setTimeout(() => setIsMounted(true) , 100)
+}, [])
+
+
+    const logo = (
+        <div className='logo'>
+        <a href='/'>
+            <div className='logo-container'>
+                Logo Here
+            </div>
+        </a>
+    </div>
+    )
+
     return (
         <StyledHeader>
             <StyledNav>
-                <div className='logo'>
-                    <a href='/'>
-                        <div className='logo-container'>
-                            Logo Here
-                        </div>
-                    </a>
-                </div>
-
-            <StyledLinks>
+               <>{logo}</>
+            <NavOptions>
                 <ul>
-                    <li> <a>About</a> </li>
-                    <li> <a>Skills</a> </li>
-                    <li> <a>Projects</a> </li>
-                    <li> <a>Contact</a> </li>
+                <TransitionGroup component={null}>
+                { isMounted && navLinks && navLinks.map(({name, url}: NavLink, i) => (
+                    <CSSTransition key={i} classNames="fadedown" timeout={ 1000 }>
+                        <li key={name} style={{ transitionDelay: `${isHome ? i * 100 : 0 }ms` }}>
+                            <Link to={url}>{name}</Link>
+                        </li>
+                    </CSSTransition>
+                    ))}
+                </TransitionGroup>
                 </ul>
-            </StyledLinks>
+                <ToggleMode /> 
+            </NavOptions>
             </StyledNav>
         </StyledHeader>
     )

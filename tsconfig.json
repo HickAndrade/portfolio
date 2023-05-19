@@ -9,7 +9,7 @@
     "outDir": "./dist",
     "baseUrl": "src",                                  /* Specify the base directory to resolve non-relative module names. */
     "paths": {
-      "@components/*": ["components/*"],
+      "@components": ["components"],
       "@styles": ["styles"],
       "@fonts" : ["fonts"],
       "@config": ["config"]

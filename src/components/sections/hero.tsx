@@ -5,11 +5,10 @@ import styled from 'styled-components';
 
 
 const StyledHeroSection = styled.section `
+    ${({ theme }) => theme.darkMode.heroSection };
     flex-direction: column;
     display:flex;
     aligh-items: flex-start;
-    background-color: #0D1730;
-    color: white;
     min-height: 50vh;
     height:100vh;
     padding: 0;
@@ -22,7 +21,7 @@ const StyledHeroCard = styled.div `
     aligh-items: flex-start;
     height:auto;
     width: 80%;
-    color: white;
+    ${({ theme }) => theme.darkMode.fontColor };
 
     h1 {
       margin: 0 0 30px 4px;
@@ -40,15 +39,23 @@ const StyledHeroCard = styled.div `
     }
     
     .email-link{
-      ${({ theme }) => ( theme.darkMode.smallButton )};
+      ${({ theme }) => ( theme.smallButton )};
       ${({ theme }) => ( theme.darkMode.contactMe )};
     }
 
     .check-work{
+      ${({ theme }) => ( theme.smallButton )};  
       ${({ theme }) => ( theme.darkMode.checkWork )};
-      ${({ theme }) => ( theme.darkMode.smallButton )};  
     }
 
+    #different-color{
+      display: flex;
+      ${({ theme }) => theme.darkMode.differentColor };
+      font-family: var(--font-sans);
+      font-size:35px;
+      font-weight: 800;
+      width: 25rem;
+    }
 `
 
 const Hero = () => {
