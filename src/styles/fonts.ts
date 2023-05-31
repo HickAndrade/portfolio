@@ -53,6 +53,7 @@ const createFontFaces = (family: FamilyProps) => {
             font-weight: ${weight};
             font-style: normal;
             font-display: auto;
+            
         }    
         `
     }

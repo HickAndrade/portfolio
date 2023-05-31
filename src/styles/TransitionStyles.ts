@@ -43,6 +43,51 @@ const TransitionStyles = css`
   transition: opacity 300ms var(--easing);
 }
 
+
+/* About span bar */
+.loading-enter {
+  opacity:0;
+  height: 0;
+}
+
+.loading-enter-active {
+  height: 4rem;
+  opacity: 1;
+  transition: height 300ms var(--easing);
+}
+.loading-exit {
+  opacity: 1;
+  height: 4rem;
+}
+.loading-exit-active {
+  opacity: 0;
+  height: 4rem;
+  transition: height 300ms var(--easing);
+}
+
+/*Arrow icons*/ 
+
+.arrow-enter{
+  opacity:0;
+  stroke-dashoffset: 500;
+}
+.arrow-enter-active{
+  opacity: 1;
+  stroke-dashoffset: 0;
+  transition: all 3s forwards;
+}
+.arrow-exit{
+  opacity: 1;
+  stroke-dashoffset: 0;
+  transition: all 3s forwards;
+}
+.arrow-exit-active{
+  opacity: 0;
+  stroke-dashoffset: 0;
+  transition: all 3s forwards;
+}
+
+
 `;
 
 export default TransitionStyles;

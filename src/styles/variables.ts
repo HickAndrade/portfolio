@@ -12,6 +12,11 @@ const variables = css `
     --trd-blue:#005D96;
     --fou-blue:#0180FF;
     --fiv-blue:#23ABFF;
+    --six-blue:#3B4868;
+
+    --fst-linear:#898989;
+    --scd-linear:#C2BBBB;
+
 `
 
 

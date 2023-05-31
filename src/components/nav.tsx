@@ -21,7 +21,7 @@ const StyledNav = styled.nav`
     position:relative;
     z-index:12;
     width: 100%;
-    margin: 3rem; 
+    margin: 4rem; 
     font-family: var(--font-sans);
     font-weight: 700;
 `
@@ -44,22 +44,22 @@ const NavOptions = styled.div`
 
       a {
         padding: 5px;
-        ${({ theme }) => theme.darkMode.fontColor }
+        ${({ theme }) => theme.theme.fontColor }
         text-decoration: none;
       }
 
       &:before {
         margin-top: 1.8rem;
         width: 0%;
-        ${({ theme }) => theme.darkMode.nav.effect }
-        ${({ theme }) => theme.darkMode.nav.before }
+        ${({ theme }) => theme.nav.effect }
+        ${({ theme }) => theme.theme.nav.before }
       }
 
       &:after {
         margin-top: 2.3rem;
         width: 0%;
-        ${({ theme }) => theme.darkMode.nav.effect }
-        ${({ theme }) => theme.darkMode.nav.after }
+        ${({ theme }) => theme.nav.effect }
+        ${({ theme }) => theme.theme.nav.after }
       }
 
       &:hover {
@@ -105,7 +105,6 @@ useEffect(() => {
                     ))}
                 </TransitionGroup>
                 </ul>
-                <ToggleMode /> 
             </NavOptions>
             </StyledNav>
         </StyledHeader>

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 const StyledHeroSection = styled.section `
-    ${({ theme }) => theme.darkMode.heroSection };
+    ${({ theme }) => theme.theme.heroSection };
     flex-direction: column;
     display:flex;
     aligh-items: flex-start;
@@ -21,7 +21,7 @@ const StyledHeroCard = styled.div `
     aligh-items: flex-start;
     height:auto;
     width: 80%;
-    ${({ theme }) => theme.darkMode.fontColor };
+    ${({ theme }) => theme.theme.fontColor };
 
     h1 {
       margin: 0 0 30px 4px;
@@ -40,17 +40,17 @@ const StyledHeroCard = styled.div `
     
     .email-link{
       ${({ theme }) => ( theme.smallButton )};
-      ${({ theme }) => ( theme.darkMode.contactMe )};
+      ${({ theme }) => ( theme.theme.contactMe )};
     }
 
     .check-work{
       ${({ theme }) => ( theme.smallButton )};  
-      ${({ theme }) => ( theme.darkMode.checkWork )};
+      ${({ theme }) => ( theme.theme.checkWork )};
     }
 
     #different-color{
       display: flex;
-      ${({ theme }) => theme.darkMode.differentColor };
+      ${({ theme }) => theme.theme.differentColor };
       font-family: var(--font-sans);
       font-size:35px;
       font-weight: 800;
@@ -82,8 +82,9 @@ const items = [one, two, three, four, five]
 
 useEffect(() => {
     setTimeout(() =>setIsMounted(true), 1000)
-    setTimeout(() =>setBlink(false), 4600)
-})
+    setTimeout(() => setBlink(false), 4600)
+    
+}, [])
 
   return (
     <StyledHeroSection>
@@ -92,7 +93,7 @@ useEffect(() => {
             {
             isMounted && items.map(( item, i ) => (
             <CSSTransition key={i} classNames="fadeup" timeout={ 2000 }>
-                <div style={{ transitionDelay: `${i + 1}00ms` }}>{item}</div>              
+              <div style={{transitionDelay: cursorBlink == false? '0s':`${i + 1}00ms` }}>{item}</div>
             </CSSTransition>
             ))}
         </TransitionGroup>
