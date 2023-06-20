@@ -36,12 +36,18 @@ const ToggleWrap = styled.label`
   flex-direction: column;
   position: fixed;
   right: 2rem;
-  top: 2.3rem;
+  top: 1.3rem;
   z-index: 15;
 
+  @media screen and (max-width: 1024px){
+    transition: right 1s;
+    right: 6.5rem;
+  }
+
   h2 {
+    white-space: nowrap;
     position: absolute;
-    top: 1.3rem;
+    top: .9rem;
     font-family: var(--font-sans);
     font-size: 15px;
     color: white;

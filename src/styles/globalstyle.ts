@@ -4,26 +4,21 @@ import variables from "./variables";
 import fonts from "./fonts";
 
 const GlobalStyle = createGlobalStyle `
-    ${variables};
-    ${fonts};
+${fonts};
+${variables};
 
- html {
+  html {
     box-sizing: border-box;
     width: 100%;
     scroll-behavior: smooth;
- }
- *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
   }
-
+  
   body {
     margin: 0;
     width: 100%;
     min-height: 100%;
     overflow-x: hidden;
-
+    
     &.blur {
       overflow: hidden;
 

@@ -8,7 +8,6 @@ const LeftArrowComponent = styled.div`
   width: 8rem;
   padding: 0;
   flex-direction: column;
- /*background-color: blue;*/
   justify-content: center;
   align-items: center;
   transform: scaleX(-1);
@@ -20,7 +19,6 @@ const RightArrowComponent = styled.div`
   height: 5rem;
   width: 8rem;
   flex-direction: column;
- /* background-color: blue;*/
   justify-content: center;
   align-items: center;
   transform: scaleX(1);
@@ -45,7 +43,7 @@ const ArrowSvg = styled.svg`
 const ArrowPath = styled.path`
   transform: translate(-20%, 10%);
   fill: none;
-  stroke: white;
+  ${({ theme }) => theme.theme.aboutAnimationColor.stroke}
   stroke-width: 2;
   stroke-dasharray: 500;
   stroke-dashoffset: 450;

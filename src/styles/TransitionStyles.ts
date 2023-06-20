@@ -27,6 +27,7 @@ const TransitionStyles = css`
   transition: opacity 300ms var(--easing), transform 300ms var(--easing);
 }
 
+
 /* Fade */
 .fade-enter {
   opacity: 0;
@@ -86,6 +87,28 @@ const TransitionStyles = css`
   stroke-dashoffset: 0;
   transition: all 3s forwards;
 }
+
+
+/* fastfade - menu suspenso */
+
+.fastfade-enter {
+  opacity: 0;
+}
+.fastfade-enter-active {
+  opacity: 1;
+  transition: opacity 0ms var(--easing);
+}
+.fastfade-exit {
+  opacity: 1;
+}
+.fastfade-exit-active {
+  opacity: 0;
+  transition: opacity 0ms var(--easing);
+}
+
+
+
+
 
 
 `;

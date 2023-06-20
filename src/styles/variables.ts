@@ -17,6 +17,10 @@ const variables = css `
     --fst-linear:#898989;
     --scd-linear:#C2BBBB;
 
+    --fst-gray: #151823;
+
+    --fst-black: #101010;
+};
 `
 
 

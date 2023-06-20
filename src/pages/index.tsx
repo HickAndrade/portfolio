@@ -1,7 +1,7 @@
 import * as React from "react"
 import type { HeadFC, PageProps } from "gatsby"
 import styled from 'styled-components';
-import { Hero, About, Layout } from "@components";
+import { Hero, About, Skills , Layout } from "@components";
 
 
 const STyledMainContainer = styled.main `
@@ -14,9 +14,7 @@ const IndexPage = ({ location }: PageProps): JSX.Element => (
     <STyledMainContainer className="fillHeight">
       <Hero />
       <About />
-      <div style={{width: '100%', height: '100vh'}}>
-
-      </div>
+      <Skills />
     </STyledMainContainer>
   </Layout>
 )

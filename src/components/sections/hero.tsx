@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 
 const StyledHeroSection = styled.section `
-    ${({ theme }) => theme.theme.heroSection };
+    ${({ theme }) => theme.theme.primaryColor };
     flex-direction: column;
     display:flex;
     aligh-items: flex-start;
@@ -16,7 +16,7 @@ const StyledHeroSection = styled.section `
 const StyledHeroCard = styled.div `
     display: flex;
     margin: auto;
-    margin-top: 13rem;
+    margin-top: 14rem;
     flex-direction: column;
     aligh-items: flex-start;
     height:auto;
@@ -33,7 +33,7 @@ const StyledHeroCard = styled.div `
     
     p {
         text-align: left;
-        width: 600px;
+        width: 60%;
         font-family: var(--font-nunito);
         margin-bottom: 3rem;
     }
@@ -55,6 +55,28 @@ const StyledHeroCard = styled.div `
       font-size:35px;
       font-weight: 800;
       width: 25rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      p{
+        width: 70%;
+      }
+ 
+      @media screen and (max-width: 768px) {
+        h1{
+          font-size: 27px;
+        }
+        p{
+          width: 100%;
+        }
+        #different-color{
+          font-size:27px;
+          width: 20rem;
+        }
+  
+
+      }
+
     }
 `
 
