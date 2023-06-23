@@ -14,12 +14,15 @@ const variables = css `
     --fiv-blue:#23ABFF;
     --six-blue:#3B4868;
 
+
     --fst-linear:#898989;
     --scd-linear:#C2BBBB;
 
-    --fst-gray: #151823;
+    --fst-gray: #D2CECE;
 
-    --fst-black: #101010;
+    --fst-black: #211F1F;
+
+    --fst-white: #fbfbfb;
 };
 `
 

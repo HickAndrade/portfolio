@@ -174,8 +174,7 @@ const StyledNav = styled.nav`
 const Nav = ({ isHome, logotype }: { isHome: boolean, logotype: boolean }): JSX.Element => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const [triggerMenu, setTriggerMenu] = useState(true);
-  const [pageScroll, setPageScroll] = useState('up');
-  const [prevPageScroll, setPrevScroll] =useState(0);
+
   
   const { navLinks } = config;
 
@@ -187,19 +186,8 @@ const Nav = ({ isHome, logotype }: { isHome: boolean, logotype: boolean }): JSX.
     });
     setTriggerMenu(!mediaQuery.matches);
 
-    const handleScroll = () => {
-      const currentScroll = window.scrollY;
-      setPrevScroll(currentScroll);
-  
-      if (currentScroll > prevPageScroll) {
-        setPageScroll('down');
-      } else if (currentScroll < prevPageScroll) {
-        setPageScroll('up');
-      }
-    };
-
-    console.log(prevPageScroll);
-    window.addEventListener('scroll', handleScroll);
+   
+    
     setTimeout(() => setIsMounted(true), 100);
   }, []);
 
@@ -214,10 +202,10 @@ const Nav = ({ isHome, logotype }: { isHome: boolean, logotype: boolean }): JSX.
   );
 
   return (
-    <StyledHeader className={pageScroll === "up"? "":"get-nav"}>
+    <StyledHeader>
       <StyledNav>
         <>{logo}</>
-        <CSSTransition in={triggerMenu} unmountOnExit classNames={triggerMenu ? 'fade':'fastfade'} timeout={300}>
+        <CSSTransition in={triggerMenu} unmountOnExit classNames={'fastfade'} timeout={300}>
           <NavOptions>
             <ul>
               <TransitionGroup component={null}>

@@ -47,11 +47,10 @@ const ToggleWrap = styled.label`
   h2 {
     white-space: nowrap;
     position: absolute;
-    top: .9rem;
+    top: 1rem;
     font-family: var(--font-sans);
     font-size: 15px;
     color: white;
-    opacity: 0;
     transition: opacity 300ms;
   }
 
@@ -109,6 +108,7 @@ const ToggleMode = ({ isChecked }: ToggleModeProps): JSX.Element => {
     setMessageAnimation({ animation: true, message: !e });
     isChecked(e);
 
+    console.log(e);
     setTimeout(() => {
       setMessageAnimation((prevstate) => ({ ...prevstate, animation: false }));
     }, 300);

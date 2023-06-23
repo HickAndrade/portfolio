@@ -1,13 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useStaticQuery, graphql } from 'gatsby';
+import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import config from "@config";
 import { LeftArrow, RightArrow } from "@icons";
 import sr from "@utils/sr";
 import { PlateInfo } from "@components";
-
 
 interface JobData {
   title: string;
@@ -19,30 +18,47 @@ interface JobData {
 }
 
 const StyledAboutSection = styled.section`
- ${({theme}) => theme.theme.secondColor}
-  
-`;
+  ${({ theme }) => theme.theme.secondColor}
+  height: 73rem;
 
+  @media screen and (max-width: 768px) {
+    height: 78rem;
+  }
+  @media screen and (max-width: 593px) {
+    height: 80rem;
+  }
+  @media screen and (max-width: 557px) {
+    height: 85rem;
+  }
+  @media screen and (max-width: 436px) {
+    height: 90rem;
+  }
+  @media screen and (max-width: 384px) {
+    height: 95rem;
+  }
+`;
 
 const ImageBall = styled.div`
   position: relative;
   height: 4.5rem;
   width: 4.5rem;
+  opacity: 0;
   display: flex;
   flex-direction: column;
   border-radius: 50%;
-  ${({theme}) => theme.theme.aboutAnimationColor.color}
 `;
 
 const WrapConnector = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center; 
-  
+  align-items: center;
+
+  div {
+    ${({ theme }) => theme.theme.aboutAnimationColor.color}
+  }
   span {
     position: relative;
-    ${({theme}) => theme.theme.aboutAnimationColor.color}
-    height: 4rem;
+    ${({ theme }) => theme.theme.aboutAnimationColor.color}
     width: 4px;
     margin: 0 2.5rem;
   }
@@ -54,6 +70,9 @@ const AboutInfo = styled.div`
   justify-content: center;
   flex-direction: row;
 
+  #message {
+    ${({ theme }) => theme.theme.aboutMessages}
+  }
 `;
 
 const Message = styled.div`
@@ -62,10 +81,7 @@ const Message = styled.div`
   text-align: center;
   align-items: center;
   border-radius: 5px;
- 
-  border: 2px solid #151823;
-  box-shadow: 0px 0px 2px .3px #08090a;
-  background-color: #151823;
+  opacity: 0;
   color: white;
 
   display: flex;
@@ -96,46 +112,44 @@ const Message = styled.div`
 const BodySection = styled.div`
   display: flex;
   flex-direction: column;
-  ${({theme}) => theme.theme.fontColor}
+  ${({ theme }) => theme.theme.fontColor}
   padding-top:1rem;
   align-items: center;
-  height: 100rem;
   text-align: center;
   font-family: var(--font-sans);
+
   p {
     width: 60%;
     &:nth-child(2) {
       margin-bottom: 3rem;
     }
   }
- 
-  #continue{
-    position: absolute;
-    margin-top: 70rem;
-  }
 
+  #continue {
+    position: relative;
+  }
 
   @media screen and (max-width: 768px) {
     ${ImageBall} {
-      position:absolute;
+      position: absolute;
       display: none;
     }
-    ${Message}{
+    ${Message} {
       position: relative;
       margin-bottom: 3rem;
     }
-    ${WrapConnector}{   
-      span{
-        position:absolute;
-        display:none;
+    ${WrapConnector} {
+      span {
+        position: absolute;
+        display: none;
       }
     }
-    #continue{
+    #continue {
       position: relative;
-      margin-top: 4rem;
+      font-size: 16px;
+      margin-top: -2rem;
     }
   }
-
 `;
 const initialValue = {
   firstRef: false,
@@ -143,41 +157,40 @@ const initialValue = {
   thirdRef: false,
   fourRef: false,
   fiveRef: false,
-}
+};
 const initialState = {
   showLoadingBar: initialValue,
-  showInfoArrow: initialValue
-}
+  showInfoArrow: initialValue,
+};
 
 type InicialType = typeof initialValue;
 
 const About = () => {
-  const data = useStaticQuery(graphql `
-      query {
-        jobs: allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/content/jobs/" }}
-        sort: {frontmatter: {date: ASC }}
-        ) {
-          edges {
-            node {
-              frontmatter {
-                title
-                desc
-                config {
-                  right
-                  margin
-                }
+  const data = useStaticQuery(graphql`
+    query {
+      jobs: allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/content/jobs/" } }
+        sort: { frontmatter: { date: ASC } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              desc
+              config {
+                right
+                margin
               }
             }
           }
         }
       }
-
+    }
   `);
 
   const jobsData = data.jobs.edges.map(({ node }: any) => {
     const { title, desc, config } = node.frontmatter;
-    return { title, desc, config }
+    return { title, desc, config };
   });
 
   const revealContainer = useRef<HTMLDivElement | null>(null);
@@ -191,34 +204,34 @@ const About = () => {
       sr?.reveal(revealContainer.current, srConfig());
     }
 
-    const mediaQuery = window.matchMedia('(max-width: 768px)');
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
     setMediaConfig(mediaQuery.matches);
 
-    mediaQuery.addEventListener("change", () => setMediaConfig(mediaQuery.matches));
-    
+    mediaQuery.addEventListener("change", () =>
+      setMediaConfig(mediaQuery.matches)
+    );
 
     const handleScroll = () => {
-      let { scrollY, innerHeight } = window
+      let { scrollY, innerHeight } = window;
       let documentHeight = document.documentElement.scrollHeight;
       let scrollPercentage = (scrollY / (documentHeight - innerHeight)) * 100;
-     
+
       const infoDistances = [28, 34, 40, 46, 52];
-    
-        infoDistances.forEach((infoDistance, index) => {
-        setScrollStatus(prevState => ({
+
+      infoDistances.forEach((infoDistance, index) => {
+        setScrollStatus((prevState) => ({
           ...prevState,
           showInfoArrow: {
             ...prevState.showInfoArrow,
-            [loadkeys[index]]: scrollPercentage > infoDistance
+            [loadkeys[index]]: scrollPercentage > infoDistance,
           },
           showLoadingBar: {
             ...prevState.showLoadingBar,
-            [loadkeys[index]]: scrollPercentage > infoDistance + 3
-          }
+            [loadkeys[index]]: scrollPercentage > infoDistance + 3,
+          },
         }));
-      });    
+      });
     };
-    
 
     window.addEventListener("scroll", handleScroll);
 
@@ -231,51 +244,85 @@ const About = () => {
     <StyledAboutSection id="about">
       <BodySection ref={revealContainer}>
         <PlateInfo info="About Me" />
-          
+
         <p>
           My name is Henrique and I'm creating things that live on the Internet.
-          During the development of my career, I have been involved in different parts of the lifecycle
-          of a software development and deployment, being able to highlight which
-          the best ways to guarantee something well developed, always investing in "why not?". 
-        <br />
-          I participated in companies with reduced infrastructure, having to deal with several aspects of a project
-          and today I am satisfied with the result of this process.
-          This is my timeline of experiences I've enjoyed over time where I've worked on my professional profile.
+          During the development of my career, I have been involved in different
+          parts of the lifecycle of a software development and deployment, being
+          able to highlight which the best ways to guarantee something well
+          developed, always investing in "why not?".
+          <br />I participated in companies with reduced infrastructure, having
+          to deal with several aspects of a project and today I am satisfied
+          with the result of this process. This is my timeline of experiences
+          I've enjoyed over time where I've worked on my professional profile.
         </p>
-      
-        {jobsData.map(({ title, desc, config }: JobData, i: number) => {
-          const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
-          const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
-          const arrowDecision = (i) % 2 === 0;
- 
-        return(
-          <AboutInfo key={title}>
-          <CSSTransition in={infoArrow} timeout={500} classNames="arrow" unmountOnExit>
-          {!mediaConfig ? (arrowDecision ? (<LeftArrow />) : (<RightArrow />)) : <></> }
+        <TransitionGroup component={null}>
+          {jobsData.map(({ title, desc, config }: JobData, i: number) => {
+            const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
+            const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
+            const arrowDecision = i % 2 === 0;
 
-          </CSSTransition>
-          <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
-            <Message style={!mediaConfig ? config: {}}>
-              <h2>{title}</h2>
-              <span />
-              <p>{desc}</p>
-            </Message>
-          </CSSTransition>
-          <WrapConnector>
-          <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
-            <ImageBall />
-            </CSSTransition>
-            <CSSTransition in={loadingBar} timeout={500} classNames="loading" unmountOnExit>
-              <span />
-            </CSSTransition>
-          </WrapConnector>
-        </AboutInfo>
-        )}
-      )}
-       <CSSTransition in={scrollStatus.showLoadingBar.fiveRef} timeout={500} classNames="fade" unmountOnExit>
-        <h2 id="continue">To be continue...</h2> 
-       </CSSTransition>
-      </BodySection> 
+            return (
+              <AboutInfo key={title}>
+                <CSSTransition
+                  in={infoArrow}
+                  timeout={500}
+                  classNames="arrow"
+                  unmountOnExit
+                >
+                  {!mediaConfig ? (
+                    arrowDecision ? (
+                      <LeftArrow />
+                    ) : (
+                      <RightArrow />
+                    )
+                  ) : (
+                    <></>
+                  )}
+                </CSSTransition>
+                <CSSTransition
+                  in={infoArrow}
+                  timeout={500}
+                  classNames="fade"
+                  unmountOnExit
+                >
+                  <Message id="message" style={!mediaConfig ? config : {}}>
+                    <h2>{title}</h2>
+                    <span />
+                    <p>{desc}</p>
+                  </Message>
+                </CSSTransition>
+                <WrapConnector>
+                  <CSSTransition
+                    in={infoArrow}
+                    timeout={500}
+                    classNames="fade"
+                    unmountOnExit
+                  >
+                    <ImageBall />
+                  </CSSTransition>
+                  <CSSTransition
+                    in={loadingBar}
+                    timeout={500}
+                    classNames="loading"
+                    unmountOnExit
+                  >
+                    <span />
+                  </CSSTransition>
+                </WrapConnector>
+              </AboutInfo>
+            );
+          })}
+        </TransitionGroup>
+        <CSSTransition
+          in={scrollStatus.showLoadingBar.fiveRef}
+          timeout={500}
+          classNames="fade"
+          unmountOnExit
+        >
+          <h2 id="continue">To be continue...</h2>
+        </CSSTransition>
+      </BodySection>
     </StyledAboutSection>
   );
 };

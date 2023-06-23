@@ -8,7 +8,7 @@ const themeStyle = {
       color: white;
     `,
     primaryColor: css `background-color: var(--scd-blue);`,
-    secondColor: css `background-color: var(--fst-black);`,
+    secondColor: css `background-color: #020816;`,
     contactMe: css`
       background-color: var(--trd-blue);
       color: white;
@@ -34,6 +34,14 @@ const themeStyle = {
       stroke: white;
       `
     },
+    aboutMessages: css `
+        border: 1px solid #151823;
+        box-shadow: 0px 0px 2px .3px #08090a;
+        background-color: #151823;
+        span{
+          background-color: blue;
+        }
+      `,
     differentColor: css`
       background-color: white;
       color: black;
@@ -71,7 +79,7 @@ const themeStyle = {
       color: black;
     `,
     primaryColor: css `background: linear-gradient(var(--fst-linear), var(--scd-linear));`,
-    secondColor: css ` background-color:#E0E0E1;`,
+    secondColor: css ` background-color:var(--fst-gray);`,
     contactMe: css`
       background-color: var(--scd-blue);
       color: white;
@@ -97,6 +105,15 @@ const themeStyle = {
       stroke: black;
       `
     },
+    aboutMessages: css `
+        color:black;
+        background-color: #e7e7e7;
+        border: 1px solid #BEBEBE;
+        box-shadow: 0px 0px 2px .3px rgba(0, 0, 0, 0.25);
+        span{
+          background-color:#002557;
+        }
+      `,
     differentColor: css`
       background-color: var(--scd-blue);
       color: white;

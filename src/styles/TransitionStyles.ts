@@ -31,13 +31,19 @@ const TransitionStyles = css`
 /* Fade */
 .fade-enter {
   opacity: 0;
+  transition: opacity 400ms var(--easing);
 }
 .fade-enter-active {
   opacity: 1;
-  transition: opacity 300ms var(--easing);
+  transition: opacity 400ms var(--easing);
+}
+.fade-enter-done {
+  opacity: 1;
+  transition: opacity 400ms var(--easing);
 }
 .fade-exit {
   opacity: 1;
+  transition: opacity 300ms var(--easing);
 }
 .fade-exit-active {
   opacity: 0;
@@ -45,26 +51,6 @@ const TransitionStyles = css`
 }
 
 
-/* About span bar */
-.loading-enter {
-  opacity:0;
-  height: 0;
-}
-
-.loading-enter-active {
-  height: 4rem;
-  opacity: 1;
-  transition: height 300ms var(--easing);
-}
-.loading-exit {
-  opacity: 1;
-  height: 4rem;
-}
-.loading-exit-active {
-  opacity: 0;
-  height: 4rem;
-  transition: height 300ms var(--easing);
-}
 
 /*Arrow icons*/ 
 
@@ -89,28 +75,51 @@ const TransitionStyles = css`
 }
 
 
-/* fastfade - menu suspenso */
+/* About span bar */
+.loading-enter {
+  height: 0;
+  transition: height 300ms var(--easing);
+}
 
+.loading-enter-active {
+  height: 4rem;
+  transition: height 300ms var(--easing);
+}
+
+.loading-enter-done {
+  height: 4rem;
+  transition: height 300ms var(--easing);
+}
+.loading-exit {
+  height: 0;
+  transition: height 300ms var(--easing);
+}
+.loading-exit-active {
+  height: 0;
+  transition: height 300ms var(--easing);
+}
+
+/*fastfade */
 .fastfade-enter {
   opacity: 0;
+  transition: opacity 300ms var(--easing);
 }
 .fastfade-enter-active {
   opacity: 1;
-  transition: opacity 0ms var(--easing);
+  transition: opacity 300ms var(--easing);
+}
+.fastfade-enter-done {
+  opacity: 1;
+  transition: opacity 300ms var(--easing);
 }
 .fastfade-exit {
   opacity: 1;
+  transition: opacity 0ms var(--easing);
 }
 .fastfade-exit-active {
   opacity: 0;
   transition: opacity 0ms var(--easing);
 }
-
-
-
-
-
-
 `;
 
 export default TransitionStyles;
