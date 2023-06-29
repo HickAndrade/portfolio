@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import config from "@config";
-import { LeftArrow, RightArrow } from "@icons";
+import { LeftArrow, RightArrow, Icon } from "@icons";
 import sr from "@utils/sr";
 import { PlateInfo } from "@components";
 
@@ -272,9 +272,9 @@ const About = () => {
                 >
                   {!mediaConfig ? (
                     arrowDecision ? (
-                      <LeftArrow />
+                      <Icon name="LeftArrow" />
                     ) : (
-                      <RightArrow />
+                      <Icon name="RightArrow" />
                     )
                   ) : (
                     <></>

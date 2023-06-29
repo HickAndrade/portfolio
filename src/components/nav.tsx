@@ -3,7 +3,7 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import styled from "styled-components";
 import config, { NavLink } from "@config";
 import { Link } from "gatsby";
-import { DarkLogo, LightLogo } from "@icons";
+import { Icon } from "@icons";
 
 const StyledHeader = styled.header`
   ${({ theme }) => theme.flexBetween}
@@ -129,14 +129,13 @@ const StyledNav = styled.nav`
   font-family: var(--font-sans);
   font-weight: 700;
 
-
   @media screen and (max-width: 1024px) {
     ${BurguerMenu} {
       position: fixed;
       display: block;
     }
     ${NavOptions} {
-      margin-right: -3rem;
+      margin-right: -2.9rem;
       margin-top: 13rem;
       ${({ theme }) => theme.theme.nav.sideColor}
       border-radius: 5px;
@@ -195,7 +194,7 @@ const Nav = ({ isHome, logotype }: { isHome: boolean, logotype: boolean }): JSX.
     <div className="logo">
       <div className="logo-container">
         <a href="/">
-          {logotype ? <DarkLogo /> : <LightLogo /> }
+          {logotype ? <Icon name="DarkLogo" /> : <Icon name="LightLogo" /> }
         </a>
       </div>
     </div>

@@ -5,6 +5,7 @@ export interface NavLink {
 export interface SocialMediaLink {
   name: string;
   url: string;
+  icon: string;
 }
 
   export interface SrConfig {
@@ -41,8 +42,8 @@ const config: Config = {
         { name: 'Contact', url: '#contact' },
     ],
     socialMedia: [
-        { name: 'Github', url: 'urlgit' },
-        { name: 'Linkedin', url: 'urllinkedin' }
+        { name: 'Github', url: 'https://github.com/HickAndrade',icon: 'IconGitHub' },
+        { name: 'Linkedin', url: 'urllinkedin',icon: 'IconLinkedin' }
     ],
     srConfig: (delay = 200, viewFactor = 0.08) => ({
       origin: 'bottom',

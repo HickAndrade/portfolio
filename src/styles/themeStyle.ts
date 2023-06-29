@@ -3,6 +3,9 @@ import { css } from "styled-components";
 const themeStyle = {
 
   darkMode: {
+    iconColor: css `
+    fill: white;
+    `,
     fontColor: css`
       transition: color 300ms;
       color: white;
@@ -74,6 +77,9 @@ const themeStyle = {
   },
 
   lightMode: {
+    iconColor: css `
+    fill: var(--fst-blue);
+    `,
     fontColor: css`
       transition: color 300ms;
       color: black;
@@ -132,7 +138,7 @@ const themeStyle = {
         border-bottom: 25px solid var(--fst-gray);
       `,
       font: css`
-        color:white;
+        color:black;
       `
     },
     toggleMode: {

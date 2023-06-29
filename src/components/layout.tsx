@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 import { GlobalStyle, mixins, themeStyle } from "@styles";
 import { ThemeProvider } from "styled-components";
 import styled from "styled-components";
-import { Nav, ToggleMode } from "@components";
+import { Nav, ToggleMode, Social } from "@components";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -60,6 +60,7 @@ const Layout = ({ children, location }: LayoutProps): JSX.Element => {
           
           <ToggleMode isChecked={(e) => switchMode(e)} />
           <Nav isHome={isHome} logotype={logoChange}/>
+          <Social />
           <div id="content">{children}</div>
         </StyledContent>
       </ThemeProvider>

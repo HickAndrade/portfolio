@@ -125,12 +125,7 @@ const ToggleMode = ({ isChecked }: ToggleModeProps): JSX.Element => {
         <ToggleButton />
         {sun}
       </ToggleSlot>
-      <CSSTransition
-        classNames="fade"
-        timeout={1000}
-        unmountOnExit
-        in={messageAnimation.animation}
-      >
+      <CSSTransition classNames="fade" timeout={1000} unmountOnExit in={messageAnimation.animation}>
         <h2>{messageAnimation.message ? "is better." : "it suits."}</h2>
       </CSSTransition>
     </ToggleWrap>
