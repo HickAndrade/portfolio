@@ -1,16 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 import config from "@config";
-import { LeftArrow, RightArrow, Icon } from "@icons";
+import { Icon } from "@icons";
 import sr from "@utils/sr";
 import { PlateInfo } from "@components";
 
 interface JobData {
   title: string;
   desc: string;
+  icon: string;
   config: {
     right: string;
     margin: string;
@@ -43,6 +44,8 @@ const ImageBall = styled.div`
   height: 4.5rem;
   width: 4.5rem;
   opacity: 0;
+  justify-content:center;
+  align-items:center;
   display: flex;
   flex-direction: column;
   border-radius: 50%;
@@ -177,6 +180,7 @@ const About = () => {
             frontmatter {
               title
               desc
+              icon
               config {
                 right
                 margin
@@ -189,8 +193,8 @@ const About = () => {
   `);
 
   const jobsData = data.jobs.edges.map(({ node }: any) => {
-    const { title, desc, config } = node.frontmatter;
-    return { title, desc, config };
+    const { title, desc, config, icon } = node.frontmatter;
+    return { title, desc, config, icon };
   });
 
   const revealContainer = useRef<HTMLDivElement | null>(null);
@@ -256,36 +260,23 @@ const About = () => {
           with the result of this process. This is my timeline of experiences
           I've enjoyed over time where I've worked on my professional profile.
         </p>
-        <TransitionGroup component={null}>
-          {jobsData.map(({ title, desc, config }: JobData, i: number) => {
+          {jobsData.map(({ title, desc, icon , config }: JobData, i: number) => {
             const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
             const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
             const arrowDecision = i % 2 === 0;
-
+            console.log(title);
             return (
               <AboutInfo key={title}>
-                <CSSTransition
-                  in={infoArrow}
-                  timeout={500}
-                  classNames="arrow"
-                  unmountOnExit
-                >
+                <CSSTransition in={infoArrow} timeout={500} classNames="arrow" unmountOnExit>
                   {!mediaConfig ? (
                     arrowDecision ? (
                       <Icon name="LeftArrow" />
                     ) : (
                       <Icon name="RightArrow" />
                     )
-                  ) : (
-                    <></>
-                  )}
+                  ) : (<></>)}
                 </CSSTransition>
-                <CSSTransition
-                  in={infoArrow}
-                  timeout={500}
-                  classNames="fade"
-                  unmountOnExit
-                >
+                <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
                   <Message id="message" style={!mediaConfig ? config : {}}>
                     <h2>{title}</h2>
                     <span />
@@ -293,27 +284,21 @@ const About = () => {
                   </Message>
                 </CSSTransition>
                 <WrapConnector>
-                  <CSSTransition
-                    in={infoArrow}
-                    timeout={500}
-                    classNames="fade"
-                    unmountOnExit
-                  >
-                    <ImageBall />
+                  <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
+                    <ImageBall>
+                      <Icon name={icon} />
+                      
+                    </ImageBall>
                   </CSSTransition>
-                  <CSSTransition
-                    in={loadingBar}
-                    timeout={500}
-                    classNames="loading"
-                    unmountOnExit
-                  >
+                  <CSSTransition in={loadingBar} timeout={500} classNames="loading" unmountOnExit>
                     <span />
                   </CSSTransition>
                 </WrapConnector>
               </AboutInfo>
             );
+            
           })}
-        </TransitionGroup>
+       
         <CSSTransition
           in={scrollStatus.showLoadingBar.fiveRef}
           timeout={500}

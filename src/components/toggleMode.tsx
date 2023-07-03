@@ -5,6 +5,7 @@ import { CSSTransition } from "react-transition-group";
 
 interface ToggleModeProps {
   isChecked: (e: boolean) => any;
+  backOff: boolean;
 }
 
 const ToggleSlot = styled.div`
@@ -38,7 +39,8 @@ const ToggleWrap = styled.label`
   right: 2rem;
   top: 1.3rem;
   z-index: 15;
-
+  transition: transform 0.3s ease;
+  
   @media screen and (max-width: 1024px){
     transition: right 1s;
     right: 6.5rem;
@@ -87,7 +89,7 @@ const ToggleWrap = styled.label`
   }
 `;
 
-const ToggleMode = ({ isChecked }: ToggleModeProps): JSX.Element => {
+const ToggleMode = ({ isChecked, backOff }: ToggleModeProps): JSX.Element => {
   const [messageAnimation, setMessageAnimation] = useState({
     message: false,
     animation: false,
@@ -115,7 +117,7 @@ const ToggleMode = ({ isChecked }: ToggleModeProps): JSX.Element => {
   };
 
   return (
-    <ToggleWrap>
+    <ToggleWrap style={{ transform: backOff? 'translateY(0px)': 'translateY(-100px)' }}>
       <input
         type="checkbox"
         onChange={(e) => toggleMessage(e.target.checked)}

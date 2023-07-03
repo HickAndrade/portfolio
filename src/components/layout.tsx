@@ -25,6 +25,8 @@ const Layout = ({ children, location }: LayoutProps): JSX.Element => {
   const isHome = location.pathname === "/";
   const [logoChange, setLogoChange] = useState(false);
   const [themeChange, setThemeChange] = useState({ ...mixins, theme: themeStyle.darkMode});
+  const [changeNav, setChangeNav] = useState({ prevScroll: 0, switchNav: true });
+
 
   const switchMode = (e: boolean) => {
     setLogoChange(e);
@@ -35,31 +37,34 @@ const Layout = ({ children, location }: LayoutProps): JSX.Element => {
     }
   };
 
-  useEffect(()=> {
+  useEffect(() => {
+    const handleNav = () => {
+      const { scrollY } = window;
+      
+      if (changeNav.prevScroll > scrollY) {
+        setChangeNav((prev) => ({ ...prev, switchNav: true }));
+      }else{
+        setChangeNav((prev) => ({ ...prev, switchNav: false }));
+      }
 
-    
+      setChangeNav((prev) => ({ ...prev, prevScroll: scrollY }));
 
-    if (location.hash) {
-      const id = location.hash.substring(1); // location.hash without the '#'
-      setTimeout(() => {
-        const el = document.getElementById(id);
-        if (el) {
-          console.log(el);
-          el.scrollIntoView();
-          el.focus();
-        }
-      }, 0);
     }
-  },[]);
+   
+  window.addEventListener('scroll', handleNav);
 
+  return () => {
+    window.removeEventListener('scroll', handleNav);
+  };
+
+  }, [changeNav]);
   return (
     <div id="root">
       <GlobalStyle />
       <ThemeProvider theme={themeChange}>
-        <StyledContent>
-          
-          <ToggleMode isChecked={(e) => switchMode(e)} />
-          <Nav isHome={isHome} logotype={logoChange}/>
+        <StyledContent>  
+          <ToggleMode isChecked={(e) => switchMode(e)} backOff={changeNav.switchNav}/>
+          <Nav isHome={isHome} logotype={logoChange} backOff={changeNav.switchNav}/>
           <Social />
           <div id="content">{children}</div>
         </StyledContent>

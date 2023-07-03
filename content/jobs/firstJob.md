@@ -1,6 +1,7 @@
 ---
 title: '2021/2022 - Palmont Montagem Industrial'
 desc: 'Empresa ramo industrial.'
+icon: 'IconSuitCase'
 date: '2020-08-01'
 config:
   right: '100%'

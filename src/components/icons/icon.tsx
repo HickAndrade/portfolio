@@ -1,9 +1,20 @@
-import { LeftArrow, DarkLogo, RightArrow, LightLogo, IconGithub, IconLinkedin } from '@icons';
+import { 
+    LeftArrow,
+    DarkLogo,
+    RightArrow,
+    LightLogo,
+    IconGithub,
+    IconLinkedin,
+    IconBaby,
+    IconSuitCase,
+    IconGraduation
+} from '@icons';
 import styled from 'styled-components';
 import React from 'react';
 
 
 export const IconColor = styled.path ` ${({ theme })=> theme.theme.iconColor}; `;
+export const AboutIconColor = styled.path ` ${({ theme })=> theme.theme.aboutIconColor}; `;
 
 const Icon = ({name}: {name: string}) => {
     switch (name){
@@ -19,6 +30,12 @@ const Icon = ({name}: {name: string}) => {
             return <IconGithub />;
         case 'IconLinkedin':
             return <IconLinkedin />;
+        case 'IconBaby':
+            return <IconBaby />;
+        case 'IconSuitCase':
+            return <IconSuitCase />;
+        case 'IconGraduation':
+            return <IconGraduation />;
         default:
             return <LightLogo />;
     }

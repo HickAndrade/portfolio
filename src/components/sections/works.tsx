@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CSSTransition } from 'react-transition-group';
 import { PlateInfo } from "@components";
 
 const StyledWorksSection = styled.section`
-${({theme}) => theme.theme.primaryColor}
+${({theme}) => theme.theme.thirdColor}
 height: 100vh;
 display: flex;
 flex-direction: column;
@@ -27,9 +26,6 @@ const MyWorks = () => {
         <StyledWorksSection  id='works'>
             <PlateInfo info='My Works' />
 
-            <BodyWorks>
-
-            </BodyWorks>
 
         </StyledWorksSection>
     )

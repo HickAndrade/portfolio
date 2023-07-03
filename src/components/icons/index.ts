@@ -3,10 +3,14 @@ import { DarkLogo, LightLogo } from "./HA";
 
 import IconGithub from "./github";
 import IconLinkedin from "./linkedin";
+import IconBaby from "./baby";
+import IconSuitCase from "./suitcase";
+import IconGraduation from "./graduation";
 
-import Icon, { IconColor } from "./icon";
+import Icon, { IconColor, AboutIconColor } from "./icon";
 
 export {
+  AboutIconColor,
   IconColor,
   LeftArrow,
   RightArrow,
@@ -15,4 +19,7 @@ export {
   Icon,
   IconGithub,
   IconLinkedin,
+  IconBaby,
+  IconSuitCase,
+  IconGraduation
 };

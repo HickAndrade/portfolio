@@ -6,12 +6,16 @@ const themeStyle = {
     iconColor: css `
     fill: white;
     `,
+    aboutIconColor: css `
+    fill: var(--fst-blue);
+    `,
     fontColor: css`
       transition: color 300ms;
       color: white;
     `,
     primaryColor: css `background-color: var(--scd-blue);`,
     secondColor: css `background-color: #020816;`,
+    thirdColor: css ` background-color:#1a2b51;`,
     contactMe: css`
       background-color: var(--trd-blue);
       color: white;
@@ -80,12 +84,16 @@ const themeStyle = {
     iconColor: css `
     fill: var(--fst-blue);
     `,
+    aboutIconColor: css `
+    fill: white;
+    `,
     fontColor: css`
       transition: color 300ms;
       color: black;
     `,
     primaryColor: css `background: linear-gradient(var(--fst-linear), var(--scd-linear));`,
     secondColor: css ` background-color:var(--fst-gray);`,
+    thirdColor: css ` background-color:#f2f2f2;`,
     contactMe: css`
       background-color: var(--scd-blue);
       color: white;
@@ -132,13 +140,13 @@ const themeStyle = {
         background-color: var(--six-blue);
       `,
       sideColor: css`
-        background-color:  var(--fst-gray);
+        background-color:  var(--fst-blue);
       `,
       arrowColor:css `
-        border-bottom: 25px solid var(--fst-gray);
+        border-bottom: 25px solid var(--fst-blue);
       `,
       font: css`
-        color:black;
+        color:white;
       `
     },
     toggleMode: {

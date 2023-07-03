@@ -34,7 +34,7 @@ const StyledSocial = styled.div `
         width: 100%;
         height: 2px;
         opacity:0;
-        background-color:white;
+        ${({ theme }) => theme.theme.aboutAnimationColor.color}
         animation: fadeUpAnimation .5s ease-in-out forwards;
         animation-delay: 1s;
     }
@@ -43,7 +43,7 @@ const StyledSocial = styled.div `
         content: '';
         width: 60%;
         height: 2px;
-        background-color: white;
+        ${({ theme }) => theme.theme.aboutAnimationColor.color}
         top:45px; 
         opacity:0;
         left: 10px;
