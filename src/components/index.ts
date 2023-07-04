@@ -8,6 +8,8 @@ import ToggleMode from "./toggleMode";
 import PlateInfo from "./plateInfo";
 import Social from './social';
 
+import Head from "./head";
+
 export {
-    Hero, About, Skills, Layout, Nav, ToggleMode, PlateInfo, Social
+    Hero, About, Skills, Layout, Nav, ToggleMode, PlateInfo, Social, Head
 }

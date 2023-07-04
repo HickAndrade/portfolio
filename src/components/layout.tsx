@@ -2,7 +2,7 @@ import React, { useState, createContext, useEffect } from "react";
 import { GlobalStyle, mixins, themeStyle } from "@styles";
 import { ThemeProvider } from "styled-components";
 import styled from "styled-components";
-import { Nav, ToggleMode, Social } from "@components";
+import { Nav, ToggleMode, Social, Head } from "@components";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -62,6 +62,8 @@ console.log(scrollY);
 
   }, [changeNav]);
   return (
+  <>
+  <Head />
     <div id="root">
       <GlobalStyle />
       <ThemeProvider theme={themeChange}>
@@ -73,6 +75,7 @@ console.log(scrollY);
         </StyledContent>
       </ThemeProvider>
     </div>
+    </>
   );
 };
 
