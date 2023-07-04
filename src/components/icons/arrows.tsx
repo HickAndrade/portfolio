@@ -41,7 +41,7 @@ const ArrowSvg = styled.svg`
 `;
 
 const ArrowPath = styled.path`
-  transform: translate(-20%, 10%);
+  transform: translate(-30%, 10%);
   fill: none;
   ${({ theme }) => theme.theme.aboutAnimationColor.stroke}
   stroke-width: 2;

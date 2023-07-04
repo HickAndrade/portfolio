@@ -22,20 +22,23 @@ const StyledAboutSection = styled.section`
   ${({ theme }) => theme.theme.secondColor}
   height: 73rem;
 
-  @media screen and (max-width: 768px) {
-    height: 78rem;
+  @media screen and (max-width: 930px) {
+    height: 83rem;
   }
-  @media screen and (max-width: 593px) {
-    height: 80rem;
+  @media screen and (max-width: 800px) {
+    height: 86rem;
   }
-  @media screen and (max-width: 557px) {
-    height: 85rem;
+  @media screen and (max-width: 712px) {
+    height: 89rem;
   }
-  @media screen and (max-width: 436px) {
-    height: 90rem;
+  @media screen and (max-width: 572px) {
+    height: 94rem;
   }
-  @media screen and (max-width: 384px) {
-    height: 95rem;
+  @media screen and (max-width: 428px) {
+    height: 98rem;
+  }
+  @media screen and (max-width: 361px) {
+    height: 100rem;
   }
 `;
 
@@ -69,7 +72,7 @@ const WrapConnector = styled.div`
 
 const AboutInfo = styled.div`
   position: relative;
-  width: 20rem;
+  width: 22rem;
   justify-content: center;
   flex-direction: row;
 
@@ -80,16 +83,17 @@ const AboutInfo = styled.div`
 
 const Message = styled.div`
   position: absolute;
-  width: 100%;
+  width: 22rem;
   text-align: center;
   align-items: center;
   border-radius: 5px;
   opacity: 0;
   color: white;
-
   display: flex;
   flex-direction: column;
+
   h2 {
+    width:90%;
     font-family: var(--font-sans);
     font-size: 17px;
     position: relative;
@@ -97,7 +101,6 @@ const Message = styled.div`
   }
 
   p {
-    width: 100%;
     font-family: var(--font-nunito);
     font-size: 14px;
     position: relative;
@@ -120,19 +123,26 @@ const BodySection = styled.div`
   align-items: center;
   text-align: center;
   font-family: var(--font-sans);
+  
+
+  #aboutme{
+    width: 70%;
+  }
 
   p {
-    width: 60%;
+    width: 95%;
     &:nth-child(2) {
       margin-bottom: 3rem;
     }
   }
 
   #continue {
+    margin-top: 6rem;
     position: relative;
   }
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 930px) {
+
     ${ImageBall} {
       position: absolute;
       display: none;
@@ -208,7 +218,7 @@ const About = () => {
       sr?.reveal(revealContainer.current, srConfig());
     }
 
-    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const mediaQuery = window.matchMedia("(max-width: 930px)");
     setMediaConfig(mediaQuery.matches);
 
     mediaQuery.addEventListener("change", () =>
@@ -249,22 +259,21 @@ const About = () => {
       <BodySection ref={revealContainer}>
         <PlateInfo info="About Me" />
 
-        <p>
-          My name is Henrique and I'm creating things that live on the Internet.
-          During the development of my career, I have been involved in different
-          parts of the lifecycle of a software development and deployment, being
-          able to highlight which the best ways to guarantee something well
-          developed, always investing in "why not?".
-          <br />I participated in companies with reduced infrastructure, having
-          to deal with several aspects of a project and today I am satisfied
-          with the result of this process. This is my timeline of experiences
-          I've enjoyed over time where I've worked on my professional profile.
+        <p id='aboutme'>
+          My name is Henrique, and I create things that live on the internet. 
+          Throughout my career development, I have been involved in various stages of the software development
+          and deployment lifecycle, which has allowed me to highlight the best ways to ensure well-developed solutions, 
+          always investing in the "why not?" mindset.
+          <br/>
+          I have worked in companies with limited infrastructure, where I had to deal with various aspects of a project. 
+          Today, I am satisfied with the results of this process. 
+          Here is a timeline of the experiences I have embraced over the years while working to shape my professional profile.
         </p>
           {jobsData.map(({ title, desc, icon , config }: JobData, i: number) => {
             const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
             const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
             const arrowDecision = i % 2 === 0;
-            console.log(title);
+            
             return (
               <AboutInfo key={title}>
                 <CSSTransition in={infoArrow} timeout={500} classNames="arrow" unmountOnExit>
@@ -286,8 +295,7 @@ const About = () => {
                 <WrapConnector>
                   <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
                     <ImageBall>
-                      <Icon name={icon} />
-                      
+                      <Icon name={icon} /> 
                     </ImageBall>
                   </CSSTransition>
                   <CSSTransition in={loadingBar} timeout={500} classNames="loading" unmountOnExit>

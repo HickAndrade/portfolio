@@ -5,5 +5,5 @@ icon: 'IconBaby'
 date: '2000-06-17'
 config:
   right: '100%'
-  margin: '3rem -6rem'
+  margin: '3.4rem -6rem'
 ---

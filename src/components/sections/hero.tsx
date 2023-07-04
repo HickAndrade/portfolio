@@ -88,10 +88,8 @@ const [cursorBlink, setBlink] = useState(true);
 const one = <h1>Hey there,</h1>
 const two = <h1>I'm Henrique Andrade,</h1>
 const three = <div id='different-color'><Typewriter words={["Software Developer."]} loop={1} cursor={cursorBlink} /></div>
-const four = <p> Lorem Ipsu1500s, when an unknown printer took a galley of 
-    type and scrambled it to make a type specimen book.
-    Lorem Ipsu1500s, when an unknown printer took a galley of 
-    type and scrambled it to make a type specimen book. </p>
+const four = <p> I'm a software developer specialized in creating 
+  scalable solutions and web applications using best practices in software architecture. Currently, I work as a freelancer on parallel projects.</p>
 
 const five = (
     <>

@@ -40,9 +40,9 @@ const ToggleWrap = styled.label`
   top: 1.3rem;
   z-index: 15;
   transition: transform 0.3s ease;
-  
+
   @media screen and (max-width: 1024px){
-    transition: right 1s;
+    transition: transform 0.3s ease, right 1s;
     right: 6.5rem;
   }
 

@@ -41,11 +41,14 @@ const Layout = ({ children, location }: LayoutProps): JSX.Element => {
     const handleNav = () => {
       const { scrollY } = window;
       
-      if (changeNav.prevScroll > scrollY) {
-        setChangeNav((prev) => ({ ...prev, switchNav: true }));
-      }else{
+      if (changeNav.prevScroll < scrollY && scrollY > 100) {
         setChangeNav((prev) => ({ ...prev, switchNav: false }));
+
+      }else{
+        setChangeNav((prev) => ({ ...prev, switchNav: true }));
       }
+
+console.log(scrollY);
 
       setChangeNav((prev) => ({ ...prev, prevScroll: scrollY }));
 

@@ -179,32 +179,10 @@ interface NavProps {
 const Nav = ({ isHome, logotype, backOff }: NavProps): JSX.Element => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const [triggerMenu, setTriggerMenu] = useState(true);
-  const [changeNav, setChangeNav] = useState({ prevScroll: 0, switchNav: true });
+  
 
   const { navLinks } = config;
 
-
-  useEffect(() => {
-    const handleNav = () => {
-      const { scrollY } = window;
-      
-      if (changeNav.prevScroll > scrollY) {
-        setChangeNav((prev) => ({ ...prev, switchNav: true }));
-      }else{
-        setChangeNav((prev) => ({ ...prev, switchNav: false }));
-      }
-
-      setChangeNav((prev) => ({ ...prev, prevScroll: scrollY }));
-
-    }
-   
-  window.addEventListener('scroll', handleNav);
-
-  return () => {
-    window.removeEventListener('scroll', handleNav);
-  };
-
-  }, [changeNav]);
 
 
   useEffect(() => {
@@ -234,7 +212,7 @@ const Nav = ({ isHome, logotype, backOff }: NavProps): JSX.Element => {
     <StyledHeader style={{ transform: backOff? 'translateY(0px)': 'translateY(-100px)' }}>
       <StyledNav>
         <>{logo}</>
-        <CSSTransition in={triggerMenu} unmountOnExit classNames={'fastfade'} timeout={300}>
+        <CSSTransition in={backOff && triggerMenu} unmountOnExit classNames={'fastfade'} timeout={300}>
           <NavOptions>
             <ul>
               <TransitionGroup component={null}>
