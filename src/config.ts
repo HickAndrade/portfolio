@@ -37,7 +37,7 @@ const config: Config = {
     email: 'henriqandrade@outlook.com',
     navLinks: [
         { name: 'About', url: '#about' },
-        { name: 'Skills', url: '#skills' },
+        { name: 'Works', url: '#works' },
         { name: 'Projects', url: '#projects' },
         { name: 'Contact', url: '#contact' },
     ],

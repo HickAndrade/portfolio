@@ -23,7 +23,6 @@ const Head = ({ title, description, image }:HeadProps) => {
           siteMetadata {
             title
             description
-            twitterUsername
             image
             siteUrl
           }

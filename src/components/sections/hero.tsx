@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { Typewriter } from 'react-simple-typewriter';
 import styled from 'styled-components';
-
+import  config  from '@config';
 
 const StyledHeroSection = styled.section `
     ${({ theme }) => theme.theme.primaryColor };
@@ -83,7 +83,7 @@ const StyledHeroCard = styled.div `
 const Hero = () => {
 const [isMounted, setIsMounted] = useState(false);
 const [cursorBlink, setBlink] = useState(true);
-
+const { email } = config;
 
 const one = <h1>Hey there,</h1>
 const two = <h1>I'm Henrique Andrade,</h1>
@@ -93,8 +93,8 @@ const four = <p> I'm a software developer specialized in creating
 
 const five = (
     <>
-      <a className="email-link" href="">Contact me</a>
-      <a className="check-work" href="">Check my work</a>
+      <a className="email-link" href={`mailto:${email}`}>Contact me</a>
+      <a className="check-work" href="#works">Check my work</a>
     </>
 )
 
