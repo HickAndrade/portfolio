@@ -3,7 +3,19 @@ import path from 'path';
 
 
 export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ stage, loaders, actions }) => {
-
+    
+    if (stage === 'build-html' || stage === 'develop-html') {
+        actions.setWebpackConfig({
+          module: {
+            rules: [
+              {
+                test: /scrollreveal/,
+                use: loaders.null(),
+              }
+            ],
+          },
+        });
+      }
     actions.setWebpackConfig({
         resolve: {
             alias: {
@@ -15,6 +27,6 @@ export const onCreateWebpackConfig: GatsbyNode['onCreateWebpackConfig'] = ({ sta
                 '@icons': path.resolve(__dirname, 'src/components/icons')
             }
         }
-    })
-    
+  })
+
 }

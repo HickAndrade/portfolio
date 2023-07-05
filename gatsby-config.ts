@@ -3,7 +3,7 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Henrique Andrade`,
-    description: `Henrique Andrade, Software Developer.. check-out. `,
+    description: `Henrique Andrade, Software Developer, check-out. `,
     siteUrl: `https://www.yourdomain.tld`,
     image: '/og.png',
   },

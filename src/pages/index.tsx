@@ -1,5 +1,5 @@
-import * as React from "react"
-import type { HeadFC, PageProps } from "gatsby"
+import * as React from "react";
+import type { HeadFC, PageProps } from "gatsby";
 import styled from 'styled-components';
 import { Hero, About, Skills , Layout } from "@components";
 
@@ -21,4 +21,4 @@ const IndexPage = ({ location }: PageProps): JSX.Element => (
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Header: HeadFC = () => <title>Home Page - HA</title>
