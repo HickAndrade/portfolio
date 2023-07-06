@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { CSSTransition } from "react-transition-group";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import config from "@config";
 import { Icon } from "@icons";
@@ -46,9 +46,8 @@ const ImageBall = styled.div`
   position: relative;
   height: 4.5rem;
   width: 4.5rem;
-  opacity: 0;
-  justify-content:center;
-  align-items:center;
+  justify-content: center;
+  align-items: center;
   display: flex;
   flex-direction: column;
   border-radius: 50%;
@@ -87,13 +86,12 @@ const Message = styled.div`
   text-align: center;
   align-items: center;
   border-radius: 5px;
-  opacity: 0;
   color: white;
   display: flex;
   flex-direction: column;
 
   h2 {
-    width:90%;
+    width: 90%;
     font-family: var(--font-sans);
     font-size: 17px;
     position: relative;
@@ -123,9 +121,8 @@ const BodySection = styled.div`
   align-items: center;
   text-align: center;
   font-family: var(--font-sans);
-  
 
-  #aboutme{
+  #aboutme {
     width: 70%;
   }
 
@@ -142,7 +139,6 @@ const BodySection = styled.div`
   }
 
   @media screen and (max-width: 930px) {
-
     ${ImageBall} {
       position: absolute;
       display: none;
@@ -259,54 +255,75 @@ const About = () => {
       <BodySection ref={revealContainer}>
         <PlateInfo info="About Me" />
 
-        <p id='aboutme'>
-          My name is Henrique, and I create things that live on the internet. 
-          Throughout my career development, I have been involved in various stages of the software development
-          and deployment lifecycle, which has allowed me to highlight the best ways to ensure well-developed solutions, 
-          always investing in the "why not?" mindset.
-          <br/>
-          I have worked in companies with limited infrastructure, where I had to deal with various aspects of a project. 
-          Today, I am satisfied with the results of this process. 
-          Here is a timeline of the experiences I have embraced over the years while working to shape my professional profile.
+        <p id="aboutme">
+          My name is Henrique, and I create things that live on the internet.
+          Throughout my career development, I have been involved in various
+          stages of the software development and deployment lifecycle, which has
+          allowed me to highlight the best ways to ensure well-developed
+          solutions, always investing in the "why not?" mindset.
+          <br />I have worked in companies with limited infrastructure, where I
+          had to deal with various aspects of a project. Today, I am satisfied
+          with the results of this process. Here is a timeline of the
+          experiences I have embraced over the years while working to shape my
+          professional profile.
         </p>
-          {jobsData.map(({ title, desc, icon , config }: JobData, i: number) => {
-            const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
-            const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
-            const arrowDecision = i % 2 === 0;
-            
-            return (
-              <AboutInfo key={title}>
-                <CSSTransition in={infoArrow} timeout={500} classNames="arrow" unmountOnExit>
-                  {!mediaConfig ? (
-                    arrowDecision ? (
-                      <Icon name="LeftArrow" />
-                    ) : (
-                      <Icon name="RightArrow" />
-                    )
-                  ) : (<></>)}
+        {jobsData.map(({ title, desc, icon, config }: JobData, i: number) => {
+          const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];
+          const infoArrow = scrollStatus.showInfoArrow[loadkeys[i]];
+          const arrowDecision = i % 2 === 0;
+          const { margin, right } = config;
+
+          return (
+            <AboutInfo key={title}>
+              <CSSTransition in={infoArrow} timeout={500} classNames="arrow" unmountOnExit>
+                {!mediaConfig ? ( arrowDecision ? (
+                    <Icon name="LeftArrow" />
+                  ) : (
+                    <Icon name="RightArrow" />
+                  )
+                ) : (
+                  <></>
+                )}
+              </CSSTransition>
+              <CSSTransition in={infoArrow} timeout={500} classNames="fade">
+                <Message
+                  id="message"
+                  style={{
+                    opacity: !infoArrow ? "0" : "1",
+                    transition: "opacity 400ms",
+                    margin: !mediaConfig && margin ? margin : "",
+                    right: !mediaConfig && right ? right : "",
+                  }}
+                >
+                  <h2>{title}</h2>
+                  <span />
+                  <p>{desc}</p>
+                </Message>
+              </CSSTransition>
+              <WrapConnector>
+                <CSSTransition in={infoArrow} timeout={500} classNames="fade">
+                  <ImageBall
+                    style={{
+                      opacity: !infoArrow ? "0" : "1",
+                      transition: "opacity 400ms",
+                    }}
+                  >
+                    <Icon name={icon} />
+                  </ImageBall>
                 </CSSTransition>
-                <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
-                  <Message id="message" style={!mediaConfig ? config : {}}>
-                    <h2>{title}</h2>
-                    <span />
-                    <p>{desc}</p>
-                  </Message>
+                <CSSTransition
+                  in={loadingBar}
+                  timeout={500}
+                  classNames="loading"
+                  unmountOnExit
+                >
+                  <span />
                 </CSSTransition>
-                <WrapConnector>
-                  <CSSTransition in={infoArrow} timeout={500} classNames="fade" unmountOnExit>
-                    <ImageBall>
-                      <Icon name={icon} /> 
-                    </ImageBall>
-                  </CSSTransition>
-                  <CSSTransition in={loadingBar} timeout={500} classNames="loading" unmountOnExit>
-                    <span />
-                  </CSSTransition>
-                </WrapConnector>
-              </AboutInfo>
-            );
-            
-          })}
-       
+              </WrapConnector>
+            </AboutInfo>
+          );
+        })}
+
         <CSSTransition
           in={scrollStatus.showLoadingBar.fiveRef}
           timeout={500}

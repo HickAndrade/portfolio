@@ -48,8 +48,6 @@ const Layout = ({ children, location }: LayoutProps): JSX.Element => {
         setChangeNav((prev) => ({ ...prev, switchNav: true }));
       }
 
-console.log(scrollY);
-
       setChangeNav((prev) => ({ ...prev, prevScroll: scrollY }));
 
     }
