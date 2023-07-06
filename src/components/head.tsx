@@ -25,6 +25,7 @@ const Head = ({ title, description, image }:HeadProps) => {
             defaultDescription: description
             defaultImage: image
             siteUrl
+            
           }
         }
       }
