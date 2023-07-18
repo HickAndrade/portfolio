@@ -40,12 +40,6 @@ const Head = ({ title, description, image }:HeadProps) => {
     twitterUsername,
   } = site.siteMetadata;
 
-console.log( defaultTitle,
-  defaultDescription,
-  siteUrl,
-  defaultImage,
-  twitterUsername);
-  
   const seo = {
     title: title || defaultTitle,
     description: description || defaultDescription,

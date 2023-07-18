@@ -78,6 +78,9 @@ const themeStyle = {
         background-color: #1e1e1e;
       `,
     },
+    cardWorksColor: css `
+    background-color: var(--scd-blue);
+    ` 
   },
 
   lightMode: {
@@ -157,6 +160,9 @@ const themeStyle = {
         background-color: #1e1e1e;
       `,
     },
+    cardWorksColor: css `
+    background-color:var(--fst-gray);
+    ` 
   },
 };
 

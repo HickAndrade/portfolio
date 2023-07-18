@@ -33,25 +33,29 @@ const config: GatsbyConfig = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
         name: 'content',
         path: `${__dirname}/content/`,
       },
-    },
-    {
+    },{
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'projects',
+        path: `${__dirname}/content/projects`,
+      },
+    }, {
       resolve: `gatsby-transformer-remark`,
-      options:{
+      options: {
         plugins: [
           {
             // https://www.gatsbyjs.org/packages/gatsby-remark-external-links
             resolve: 'gatsby-remark-external-links',
             options: {
               target: '_blank',
-              rel: 'nofollow noopener noreferrer',
+              rel: 'nofollow',
             },
           }
-      
         ]
       }
     }

@@ -16,7 +16,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "gatsby": "^5.8.1",
+    "gatsby": "^5.11.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.11.0",
     "gatsby-plugin-offline": "^6.10.0",
@@ -27,7 +27,7 @@
     "gatsby-plugin-styled-components": "^6.9.0",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-source-filesystem": "^5.10.0",
-    "gatsby-transformer-remark": "^6.10.0",
+    "gatsby-transformer-remark": "^6.11.0",
     "gatsby-transformer-sharp": "^5.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

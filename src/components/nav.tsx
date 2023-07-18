@@ -135,8 +135,8 @@ const StyledNav = styled.nav`
       display: block;
     }
     ${NavOptions} {
-      margin-right: -2.9rem;
-      margin-top: 13rem;
+      margin-right: -2.8rem;
+      margin-top: 12rem;
       ${({ theme }) => theme.theme.nav.sideColor}
       border-radius: 5px;
 
@@ -144,7 +144,7 @@ const StyledNav = styled.nav`
         content: "";
         position: absolute;
         margin-left: 1.9rem;
-        margin-top: -9rem;
+        margin-top: -7.5rem;
         border-top: 0px solid transparent;
         border-left: 25px solid transparent;
         border-right: 25px solid transparent;

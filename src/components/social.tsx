@@ -84,7 +84,7 @@ const Social = () => {
               {isMounted && socialMedia.map(({ name, url, icon }, i) => (
                 <CSSTransition classNames='fade' timeout={300} key={name}>
                 <li>
-                    <a href={url} target='_blank' rel='noreferrer'>
+                    <a href={url} target='_blank' rel="nofollow noopener noreferrer">
                         <Icon name={icon} />
                     </a>
                 </li>

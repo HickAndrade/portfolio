@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { CSSTransition } from "react-transition-group";
 
 import config from "@config";
 import { Icon } from "@icons";

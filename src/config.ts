@@ -38,8 +38,7 @@ const config: Config = {
     navLinks: [
         { name: 'About', url: '#about' },
         { name: 'Works', url: '#works' },
-        { name: 'Projects', url: '#projects' },
-        { name: 'Contact', url: '#contact' },
+        { name: 'Contact', url: 'mailto:henriqandrade@outlook.com' },
     ],
     socialMedia: [
         { name: 'Github', url: 'https://github.com/HickAndrade',icon: 'IconGitHub' },

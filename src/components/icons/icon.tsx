@@ -7,7 +7,8 @@ import {
     IconLinkedin,
     IconBaby,
     IconSuitCase,
-    IconGraduation
+    IconGraduation,
+    IconLink
 } from '@icons';
 import styled from 'styled-components';
 import React from 'react';
@@ -36,6 +37,8 @@ const Icon = ({name}: {name: string}) => {
             return <IconSuitCase />;
         case 'IconGraduation':
             return <IconGraduation />;
+        case 'IconLink':
+            return <IconLink />;
         default:
             return <LightLogo />;
     }

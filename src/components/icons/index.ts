@@ -6,6 +6,7 @@ import IconLinkedin from "./linkedin";
 import IconBaby from "./baby";
 import IconSuitCase from "./suitcase";
 import IconGraduation from "./graduation";
+import IconLink from "./link";
 
 import Icon, { IconColor, AboutIconColor } from "./icon";
 
@@ -21,5 +22,6 @@ export {
   IconLinkedin,
   IconBaby,
   IconSuitCase,
-  IconGraduation
+  IconGraduation,
+  IconLink
 };
