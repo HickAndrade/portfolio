@@ -1,6 +1,6 @@
 ---
-title: '2023 - Maquigeral (Currently)'
-desc: 'As an Analyst Developer, Collaboration and implementation of the IT sector planning, involving the software used by employees, telephony service (PABX/Virtual DDR), server migration, and development of support tools.'
+title: '2023 - Maquigeral'
+desc: 'Como Analista Desenvolvedor, Colaboração e implementação do planejamento do setor de TI, envolvendo os softwares utilizados pelos funcionários, atendimento de telefonia (PABX/DDR Virtual), migração de servidores e desenvolvimento de ferramentas de suporte.'
 icon: 'IconSuitCase'
 date: '2023-01-02'
 config:

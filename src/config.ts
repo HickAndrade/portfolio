@@ -36,9 +36,9 @@ export interface SocialMediaLink {
 const config: Config = {
     email: 'henriqandrade@outlook.com',
     navLinks: [
-        { name: 'About', url: '#about' },
-        { name: 'Works', url: '#works' },
-        { name: 'Contact', url: 'mailto:henriqandrade@outlook.com' },
+        { name: 'Sobre', url: '#about' },
+        { name: 'Trabalhos', url: '#works' },
+        { name: 'Contato', url: 'mailto:henriqandrade@outlook.com' },
     ],
     socialMedia: [
         { name: 'Github', url: 'https://github.com/HickAndrade',icon: 'IconGitHub' },

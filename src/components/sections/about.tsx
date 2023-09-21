@@ -253,19 +253,18 @@ const About = () => {
   return (
     <StyledAboutSection id="about">
       <BodySection ref={revealContainer}>
-        <PlateInfo info="About Me" />
+        <PlateInfo info="Sobre mim" />
 
         <p id="aboutme">
-          My name is Henrique, and I create things that live on the internet.
-          Throughout my career development, I have been involved in various
-          stages of the software development and deployment lifecycle, which has
-          allowed me to highlight the best ways to ensure well-developed
-          solutions, always investing in the "why not?" mindset.
-          <br />I have worked in companies with limited infrastructure, where I
-          had to deal with various aspects of a project. Today, I am satisfied
-          with the results of this process. Here is a timeline of the
-          experiences I have embraced over the years while working to shape my
-          professional profile.
+        Olá, meu nome é Henrique Andrade!
+
+Desenvolvedor front-end atuando há mais de 4 anos. Tenho experiência na construção de aplicações Web com React e algumas tecnologias como Next.js, Gatsby.js, Docker, Redux/React Hooks, GraphQL, Figma, CSS-in-JS, Tailwind e Rest APIs,
+ Sempre com foco em padrões que envolvem uma boa Arquitetura de software. 
+          Participei de algumas fases do ciclo de vida de software com fluxos de versionamento e 
+          implementação de funcionalidades, 
+          desenvolvendo e aprendendo com novas ferramentas, 
+          o que me permitiu destacar soluções e funcionalidades bem desenvolvidas.
+          <br />Sou apaixonado por construir interfaces elegantes e fáceis de usar, sempre me adaptando as mudanças e evoluindo constantemente como desenvolvedor.
         </p>
         {jobsData.map(({ title, desc, icon, config }: JobData, i: number) => {
           const loadingBar = scrollStatus.showLoadingBar[loadkeys[i]];

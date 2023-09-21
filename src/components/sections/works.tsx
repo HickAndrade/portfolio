@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { PlateInfo } from "@components";
 import { useStaticQuery, graphql } from "gatsby";
-import { getImage, GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { getImage, GatsbyImage } from "gatsby-plugin-image";
 import { Icon } from "@icons";
 
 
@@ -41,7 +41,6 @@ const Card = styled.div `
     position: relative;
     min-height: 170px;
     
-
     .project-image{
       align-self: start;
       top:40px;
@@ -143,7 +142,7 @@ const MyWorks = () => {
 
   return (
     <StyledWorksSection id="works">
-      <PlateInfo info="My Works" />
+      <PlateInfo info="Trabalhos" />
       
         <CardList>
         {worksData.map(({ node }: any) => {

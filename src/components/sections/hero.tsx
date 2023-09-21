@@ -85,20 +85,19 @@ const [isMounted, setIsMounted] = useState(false);
 const [cursorBlink, setBlink] = useState(true);
 const { email } = config;
 
-const one = <h1>Hey there,</h1>
-const two = <h1>I'm Henrique Andrade,</h1>
+
+const two = <h1>Henrique Andrade,</h1>
 const three = <div id='different-color'><Typewriter words={["Software Developer."]} loop={1} cursor={cursorBlink} /></div>
-const four = <p> I'm a software developer specialized in creating 
-  scalable solutions and web applications using best practices in software architecture. Currently, I work as a freelancer on parallel projects.</p>
+const four = <p> desenvolvedor de software especializado na criação de soluções e aplicações web escaláveis ​​utilizando as melhores práticas em arquitetura de software. Atualmente como freelancer em projetos paralelos.</p>
 
 const five = (
     <>
-      <a className="email-link" href={`mailto:${email}`}>Contact me</a>
-      <a className="check-work" href="#works">Check my work</a>
+      <a className="email-link" href={`mailto:${email}`}>Contato</a>
+      <a className="check-work" href="#works">Meus trabalhos</a>
     </>
 )
 
-const items = [one, two, three, four, five]
+const items = [two, three, four, five]
 
 useEffect(() => {
     setTimeout(() =>setIsMounted(true), 1000)

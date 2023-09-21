@@ -1,6 +1,6 @@
 ---
-title: '2023 - Integration of processes with third parties'
-desc: 'I collaborated with consulting firms, where I designed processes and monitored implementations focused on logistics and fleet management. During this work, I was responsible for creating APIs that integrated with ERP routines, resulting in efficient and optimized solutions to enhance fleet management.'
+title: '2023 - Integração de processos com terceiros'
+desc: 'Colaborei com consultorias, onde desenhei processos e acompanhei implementações focadas em logística e gestão de frotas. Durante este trabalho, fui responsável pela criação de APIs que se integrassem às rotinas do ERP, resultando em soluções eficientes e otimizadas para aprimorar a gestão de frotas.'
 icon: 'IconSuitCase'
 date: '2023-01-01'
 config:
