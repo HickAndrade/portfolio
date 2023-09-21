@@ -8,7 +8,7 @@ import { Icon } from "@icons";
 
 const StyledWorksSection = styled.section`
   ${({ theme }) => theme.theme.thirdColor}
-  height: 120vh;
+  height: 150vh;
   display: flex;
   flex-direction: column;
   align-items: center;

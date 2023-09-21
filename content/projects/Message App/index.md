@@ -5,6 +5,7 @@ cover: './formylove.png'
 github: 'https://github.com/HickAndrade/message-app'
 external: 'https://message-app-chi.vercel.app'
 tech:
+    - Nextjs
     - Typescript
     - Tailwind
     - React

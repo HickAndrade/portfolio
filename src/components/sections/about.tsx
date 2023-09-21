@@ -20,25 +20,25 @@ interface JobData {
 
 const StyledAboutSection = styled.section`
   ${({ theme }) => theme.theme.secondColor}
-  height: 73rem;
+  height: 78rem;
 
   @media screen and (max-width: 930px) {
-    height: 83rem;
+    height: 100rem;
   }
   @media screen and (max-width: 800px) {
-    height: 86rem;
+    height: 100rem;
   }
   @media screen and (max-width: 712px) {
-    height: 89rem;
+    height: 100rem;
   }
   @media screen and (max-width: 572px) {
-    height: 94rem;
+    height: 100rem;
   }
   @media screen and (max-width: 428px) {
-    height: 98rem;
+    height: 120rem;
   }
   @media screen and (max-width: 361px) {
-    height: 100rem;
+    height: 120rem;
   }
 `;
 
@@ -134,7 +134,7 @@ const BodySection = styled.div`
   }
 
   #continue {
-    margin-top: 6rem;
+    margin-top: 10rem;
     position: relative;
   }
 
